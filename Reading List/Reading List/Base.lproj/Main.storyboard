@@ -34,7 +34,7 @@
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b2j-23-fDk">
                                             <rect key="frame" x="324" y="11" width="70" height="22"/>
-                                            <state key="normal" title="Button" image="Checked, Unchecked"/>
+                                            <state key="normal" title="Button" image="unchecked"/>
                                             <connections>
                                                 <action selector="readOrNot:" destination="eLe-W8-6uB" eventType="touchUpInside" id="ICW-OU-OYP"/>
                                             </connections>
@@ -50,6 +50,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="bookTitle" destination="3OH-UN-Szv" id="PvX-7E-Gxg"/>
+                                    <outlet property="readButton" destination="b2j-23-fDk" id="uZ3-yC-siT"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -142,6 +143,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Checked, Unchecked" width="16" height="16"/>
+        <image name="unchecked" width="16" height="16"/>
     </resources>
 </document>
