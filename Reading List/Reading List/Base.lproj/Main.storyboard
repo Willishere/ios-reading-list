@@ -32,9 +32,12 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b2j-23-fDk">
-                                            <rect key="frame" x="348" y="7" width="46" height="30"/>
-                                            <state key="normal" title="Button"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b2j-23-fDk">
+                                            <rect key="frame" x="324" y="11" width="70" height="22"/>
+                                            <state key="normal" title="Button" image="Checked, Unchecked"/>
+                                            <connections>
+                                                <action selector="readOrNot:" destination="eLe-W8-6uB" eventType="touchUpInside" id="ICW-OU-OYP"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -45,6 +48,9 @@
                                         <constraint firstItem="b2j-23-fDk" firstAttribute="trailing" secondItem="PxK-Sm-Ues" secondAttribute="trailingMargin" id="xnL-1T-nch"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="bookTitle" destination="3OH-UN-Szv" id="PvX-7E-Gxg"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -69,7 +75,7 @@
         <!--ReadingList-->
         <scene sceneID="Zed-6K-KSe">
             <objects>
-                <viewController title="ReadingList" id="zvT-zU-F6l" sceneMemberID="viewController">
+                <viewController title="ReadingList" id="zvT-zU-F6l" customClass="BookDetailViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QQW-WA-iPe">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -91,18 +97,26 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="gFf-e6-Mtt" firstAttribute="trailing" secondItem="qgs-Tw-KIP" secondAttribute="trailing" id="2mF-Sd-juz"/>
-                            <constraint firstItem="gFf-e6-Mtt" firstAttribute="bottom" secondItem="qgs-Tw-KIP" secondAttribute="bottom" id="59b-QJ-AT4"/>
                             <constraint firstItem="1TC-Km-dNF" firstAttribute="top" secondItem="gFf-e6-Mtt" secondAttribute="top" constant="20" id="BpD-hQ-Tn3"/>
                             <constraint firstItem="gFf-e6-Mtt" firstAttribute="trailing" secondItem="1TC-Km-dNF" secondAttribute="trailing" constant="20" id="DZN-KS-4e6"/>
                             <constraint firstItem="1TC-Km-dNF" firstAttribute="leading" secondItem="gFf-e6-Mtt" secondAttribute="leading" constant="20" id="HYe-TL-I1D"/>
                             <constraint firstItem="qgs-Tw-KIP" firstAttribute="top" secondItem="1TC-Km-dNF" secondAttribute="bottom" constant="20" id="Zca-5f-S57"/>
+                            <constraint firstAttribute="bottom" secondItem="qgs-Tw-KIP" secondAttribute="bottom" constant="83" id="khv-aG-NYC"/>
                             <constraint firstItem="qgs-Tw-KIP" firstAttribute="leading" secondItem="gFf-e6-Mtt" secondAttribute="leading" id="ysb-5h-zba"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gFf-e6-Mtt"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="SEC-rX-Ofu">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="tMi-P1-1OX"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="tMi-P1-1OX">
+                            <connections>
+                                <action selector="saveButtonPressed:" destination="zvT-zU-F6l" id="3Wq-vd-tbj"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="bookTitle" destination="1TC-Km-dNF" id="YCD-ji-YkP"/>
+                        <outlet property="reasonToRead" destination="qgs-Tw-KIP" id="AXy-V0-npP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pcq-wC-Yo0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -127,4 +141,7 @@
             <point key="canvasLocation" x="78.260869565217391" y="91.741071428571431"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Checked, Unchecked" width="16" height="16"/>
+    </resources>
 </document>
