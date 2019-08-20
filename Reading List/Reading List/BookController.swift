@@ -22,8 +22,11 @@ class BookController {
     }
     @discardableResult func createBook(named name: String, reason reasonToRead: String, read hasBeenRead: Bool) -> Book {
         let book = Book(title: name, reasonToRead: reasonToRead, hasBeenRead: hasBeenRead)
-        
+        books.append(book)
+        saveToPersistentStore()
+        return book
     }
+    
     func saveToPersistentStore() {
         guard let url = persistentFileURL else { return }
         
@@ -34,6 +37,12 @@ class BookController {
         } catch {
             print("Error saving stars data: \(error)")
         }
+    }
+    
+    func deleteBook (_ book: Book){
+        guard let index = books.firstIndex(of: book) else { return }
+        books.remove(at: index)
+        
     }
     
     func loadFromPersistentStore() {
@@ -47,6 +56,10 @@ class BookController {
         } catch {
             print("Error loading stars data: \(error)")
         }
+    }
+    
+    func updateHasBeenRead(for book: Book){
+        
     }
 
     
