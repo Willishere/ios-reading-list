@@ -10,6 +10,7 @@ import Foundation
 
 class BookController {
     private(set) var books: [Book] = []
+   
     
     private var persistentFileURL: URL? {
         let fileManager = FileManager.default
@@ -20,6 +21,7 @@ class BookController {
     init(){
         loadFromPersistentStore()
     }
+    
     @discardableResult func createBook(named name: String, reason reasonToRead: String, read hasBeenRead: Bool) -> Book {
         let book = Book(title: name, reasonToRead: reasonToRead, hasBeenRead: hasBeenRead)
         books.append(book)
@@ -59,9 +61,13 @@ class BookController {
     }
     
     func updateHasBeenRead(for book: Book){
-        
+        var hasBeenRead = false
+        hasBeenRead.toggle()
     }
 
+    func updateTitleReason (for book: Book){
+        
+    }
     
     
     
